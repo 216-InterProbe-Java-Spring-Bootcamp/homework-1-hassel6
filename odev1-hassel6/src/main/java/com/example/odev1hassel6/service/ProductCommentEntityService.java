@@ -1,8 +1,6 @@
 package com.example.odev1hassel6.service;
 
-//import com.example.odev1hassel6.dao.CustomerDao;
 import com.example.odev1hassel6.dao.ProductCommentDao;
-//import com.example.odev1hassel6.dao.ProductDao;
 import com.example.odev1hassel6.ents.ProductComment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,5 +24,10 @@ public class ProductCommentEntityService {
     }
 
     public List<ProductComment> findAllByCommentProductIDAndDates(Long id, Date startDate, Date endDate) {
+        return productCommentDao.findAllByCommentProductIDAndDates( id, startDate, endDate );
+    }
+
+    public List<ProductComment> findAllByCommentCustomerIDAndDates( Long id, Date startDate, Date endDate ) {
+        return productCommentDao.findAllByCommentCustomerIDAndDates( id, startDate, endDate );
     }
 }

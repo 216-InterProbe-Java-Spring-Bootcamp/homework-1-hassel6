@@ -29,9 +29,14 @@ public class ProductCommentController {
         return productCommentEntityService.findAllByCommentCustomerID(id);
     }
 
-    @GetMapping("/comments/product/{id}/date_between/{startDate}/{endDate}")
-    public List<ProductComment> getAllProductCommentsBetweenDates(@PathVariable Long id, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date startDate, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date endDate) {
+    @GetMapping("/comments/product/{id}/datebetween/{startDate}/{endDate}")
+    public List<ProductComment> findAllByCommentProductIDAndDates(@PathVariable Long id, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date startDate, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date endDate) {
         return productCommentEntityService.findAllByCommentProductIDAndDates( id, startDate, endDate );
+    }
+
+    @GetMapping("/comments/customer/{id}/datebetween/{startDate}/{endDate}")
+    public List<ProductComment> findAllByCommentCustomerIDAndDates(@PathVariable Long id, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date startDate, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date endDate ) {
+        return productCommentEntityService.findAllByCommentCustomerIDAndDates( id, startDate, endDate );
     }
 
 }
